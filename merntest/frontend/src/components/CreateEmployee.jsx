@@ -27,7 +27,7 @@ const CreateEmployee = () => {
             alert("To Create Employee Fill all the fields..!")
         }
         else {
-            axios.post("http://localhost:4001/employees", payload, {
+            axios.post("http://localhost:3000/employees", payload, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -57,7 +57,6 @@ const CreateEmployee = () => {
                     <input className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black ' placeholder='Enter Email' type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                     <input className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black ' placeholder='Enter Phone Number' type="text" value={phone} onChange={(e) => { setPhone(e.target.value) }} />
 
-                    {/* designation dropdown */}
                     <label htmlFor="">Designation</label>
                     <select onChange={(e) => { setDesignation(e.target.value); }} name='designation' required class="block appearance-auto w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                         <option value="HR">HR</option>
@@ -65,14 +64,14 @@ const CreateEmployee = () => {
                         <option value="Sales">Sales</option>
                     </select>
 
-                    {/* Gender radio button */}
+                    
                     <label htmlFor="">Geneder : </label><br />
                     <input type="radio" id="male" name="gender" value={gender} onChange={(e) => { setGender("Male") }} />
                     <label for="male"> Male </label>
                     <input type="radio" id="female" name="gender" value={gender} onChange={(e) => { setGender("Female") }} />
                     <label for="female"> Female </label><br></br>
 
-                    {/* Courses check boxes */}
+                    
                     <label>Course :</label><br />
                     <input type="checkbox" id="MCA" name="course" value="MCA" checked={course.includes('MCA')} onChange={handleCourseChange} />
                     <label for="MCA"> MCA </label>
@@ -85,11 +84,10 @@ const CreateEmployee = () => {
                     <label htmlFor="">Upload your photo</label><br />
                     <input accept="image/jpeg, image/png" type="file" name='image' onChange={(e) => { setImage(e.target.files[0]) }} /><br />
 
-                    <button className='bg-red-300 ml-5 rounded-lg p-1' onClick={formHandle}>Register Me</button>
+                    <button style color='grren' className='bg-red-300 ml-5 rounded-lg p-1' onClick={formHandle}>Register Me</button>
                 </div>
 
             </div>
         )
     }
-
-    export default CreateEmployee
+    export default CreateEmployee;

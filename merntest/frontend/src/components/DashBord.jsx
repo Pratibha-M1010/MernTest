@@ -8,7 +8,7 @@ const DashBord = () => {
   let ID = useParams()
 
   useEffect(()=>{
-    axios.get(`http://localhost:4001/user/${ID.ID}`)
+    axios.get(`http://localhost:3000/user/${ID.ID}`)
     .then((e)=>{
       setname(e.data)
     
@@ -24,7 +24,7 @@ const DashBord = () => {
           <li><Button variant="text"><Link to='/create-employee'> Create Employee</Link></Button> </li>
           <li><Button variant="text"><Link to="/employee-list">  Employee list </Link></Button> </li>
           <li className='p-2 text-red-500 border border-dashed border-red-400 '>{name}</li>
-          <li>Logout</li>
+          <li style color='grren' >Logout</li>
         </ul>
       </div>
       <h1 className='bg-yellow-200'>DashBord</h1>
@@ -33,4 +33,4 @@ const DashBord = () => {
   )
 }
 
-export default DashBord
+export default DashBord;

@@ -11,7 +11,7 @@ const EmployeeList = () => {
     let [infoFromDB, setinfoFromDB] = useState([])
     let [reload, setReload] = useState(0)
     useEffect(()=>{
-        axios.get("http://localhost:4001/employee-list")
+        axios.get("http://localhost:3000/employee-list")
         .then((e)=>{
                 setinfoFromDB(e.data)
             })
@@ -22,7 +22,7 @@ const EmployeeList = () => {
         
     },[reload])
     let deleteUser = (e)=>{
-      axios.delete(`http://localhost:4001/employee-list/${e}`)
+      axios.delete(`http://localhost:3000/employee-list/${e}`)
       setReload(2)
     }
 
@@ -67,4 +67,4 @@ const EmployeeList = () => {
   )
 }
 
-export default EmployeeList
+export default EmployeeList;

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import axios from "axios"
 import { Link, useNavigate } from 'react-router-dom';
@@ -19,7 +20,7 @@ const Registration = () => {
         }
         else{
             if(password === cnfPassword ){
-                axios.post('http://localhost:4001/register', payload)
+                axios.post('http://localhost:3000/register', payload)
             .then((e)=>{
                 alert(e.data);
                 navigate("/")
@@ -40,16 +41,31 @@ const Registration = () => {
             <div className=' max-w-[940px]  h-[500px] border-4 border-blue-900 mx-auto relative  shadow-xl scale-75 p-[10px]'>
                 <h1 className='text-center font-bold text-2xl my-3'>Admin Registration Form</h1>
                 <div className='border border-red-600 max-w-[300px] mx-auto my-5 p-10 '>
-                    <input className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black' placeholder='Enter Full Name' type="text" value={name} onChange={(e)=>{setName(e.target.value)}} required />
-                    <input required  className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black' placeholder='Enter Email' type="text" value={email} onChange={(e)=>{setEmail(e.target.value)}} />
-                    <input required  className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black' placeholder='Enter Password' type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
-                    <input className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black' placeholder='Retype Password' type="password" value={cnfPassword} onChange={(e)=>{setCnfPassword(e.target.value)}}/>
-                    <button className='bg-red-300 ml-5 rounded-lg p-1' onClick={submitForm}>Register Me</button>
-                    <p>already have Account? <Button variant="outlined"><Link to='/'> Sign In</Link></Button> </p>
+               <label>Name : </label>
+                <input 
+  className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black' 
+  placeholder='Enter Full Name' 
+  type="text" 
+  value={name} 
+  onChange={(e) => setName(e.target.value)} 
+  required 
+/>
+<br />
+<br></br>
+<label>Email : </label>
+                    <input required  className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black' placeholder='Enter Email' type="text" value={email} onChange={(e)=>{setEmail(e.target.value)}} /><br></br><br></br>
+                    
+                    <label>Password : </label>
+                    <input required  className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black' placeholder='Enter Password' type="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/><br></br><br></br>
+                    <label>Retype Password: </label>
+                    <input className='bg-white border-2 border-violet-400 text-black my-3 placeholder-black' placeholder='Retype Password' type="password" value={cnfPassword} onChange={(e)=>{setCnfPassword(e.target.value)}}/><br></br><br></br>
+                    
+                    <br></br><button className='bg-red-300 ml-5 rounded-lg p-1' onClick={submitForm}>Register Me</button>
+                    <p>already have Account? <Button variant="outlined"><Link to='/ ' style color="green"> Sign In</Link></Button> </p>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Registration
+export default Registration;

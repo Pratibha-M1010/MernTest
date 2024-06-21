@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
-const EditEmp = () => {
+const EditEmployee = () => {
   let [name, setName] = useState("")
   let [email, setEmail] = useState('')
   let [phone, setPhone] = useState()

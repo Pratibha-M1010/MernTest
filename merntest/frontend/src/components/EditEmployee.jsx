@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
-const EditEmployee = () => {
+const EditEmp = () => {
   let [name, setName] = useState("")
   let [email, setEmail] = useState('')
   let [phone, setPhone] = useState()
@@ -16,7 +16,7 @@ const EditEmployee = () => {
   let idObj = useParams()
   let navigate = useNavigate()
   useEffect(() => {
-    axios.get(`http://localhost:4001/employee-list/${idObj.ID}`)
+    axios.get(`http://localhost:3000/employee-list/${idObj.ID}`)
       .then((e) => {
         setName(e.data.name);
         setEmail(e.data.email);
@@ -49,7 +49,7 @@ const EditEmployee = () => {
       gender: gender,
       course: courses
     }
-    axios.put(`http://localhost:4001/employee-list/${idObj.ID}`, payload, {
+    axios.put(`http://localhost:3000/employee-list/${idObj.ID}`, payload, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -108,4 +108,4 @@ const EditEmployee = () => {
   )
 }
 
-export default EditEmployee
+export default EditEmp;

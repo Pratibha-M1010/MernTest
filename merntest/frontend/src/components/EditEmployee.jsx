@@ -108,4 +108,4 @@ const EditEmployee = () => {
   )
 }
 
-export default EditEmp;
+export default EditEmployee;
